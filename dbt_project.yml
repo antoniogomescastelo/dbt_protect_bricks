@@ -1,0 +1,23 @@
+name: 'dbt_protect'
+version: '1.0.0'
+
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+target-path: "target"
+
+clean-targets:
+  - target
+  - dbt_packages
+
+on-run-start:
+  - "{{ create_function_protect() }}"
+  - "{{ create_function_dataconcept_firstname() }}"
+  - "{{ do_sources_on_run_start() }}"
+
+on-run-end:
+  - "{{ do_sources_on_run_end() }}"
+
+vars:
+  mask_db: main
+  mask_schema: sbi_template_unitycatalog

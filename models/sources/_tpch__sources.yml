@@ -1,0 +1,48 @@
+version: 2
+
+sources:
+  - name: tpch
+    database: main
+    schema: tpch_sf001
+    tables:      
+      - name: customer
+        description: main customer table
+        meta:
+          domain: customer    
+        tests:
+          - not_empty
+        columns:
+          - name: C_CUSTKEY
+            description: customer id
+          - name: C_NAME
+            description: customer name
+            tags: ['pii', 'contact_info']
+            meta:
+              domain: customer
+              standard: restricted
+              mask: main.sbi_template_unitycatalog.dataconcept_firstname
+          - name: C_ADDRESS
+            description: address of the customer
+            tags: ['pii']
+            meta:
+              domain: customer
+          - name: C_NATIONKEY
+            description: foreign key to nation
+            tags: ['pii']
+            meta:
+              domain: customer
+          - name: C_PHONE
+            description: customer phone number 
+            tags: ['pii']
+            meta:
+              domain: customer
+          - name: C_ACCTBAL
+            description: raw account balance 
+            meta:
+              domain: customer
+          - name: C_MKTSEGMENT
+            description: customer market segment
+          - name: C_COMMENT
+            description: a comment
+            tags: ['pii']
+            
