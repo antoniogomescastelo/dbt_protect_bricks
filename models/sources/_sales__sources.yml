@@ -40,9 +40,15 @@ sources:
             description: store id
             meta:
               domain: store                      
+          - name: business_key
+            description: store business identifier
+            meta:
+              domain: store                      
           - name: name
             description: store name
             meta:
               domain: store                      
           - name: address
+            description: address of the store
+          - name: email
             description: address of the store
