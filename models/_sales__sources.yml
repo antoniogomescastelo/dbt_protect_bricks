@@ -1,0 +1,48 @@
+version: 2
+
+sources:
+  - name: sales
+    database: main
+    schema: sales
+    tables:      
+      - name: dim_customer
+        description: main customer table
+        meta:
+          domain: customer    
+        tests:
+          - not_empty
+        columns:
+          - name: customer_id
+            description: customer id
+          - name: name
+            description: customer name
+            tags: ['pii', 'contact_info']
+            meta:
+              domain: customer
+              standard: restricted
+              mask: main.sbi_template_unitycatalog.dataconcept_firstname
+          - name: address
+            description: address of the customer
+            tags: ['pii']
+            meta:
+              domain: customer
+          - name: email
+            description: customer email 
+            tags: ['pii']
+            meta:
+              domain: customer                      
+      - name: dim_store
+        description: main customer table
+        tests:
+          - not_empty
+        columns:
+          - name: store_id
+            description: store id
+            meta:
+              domain: store                      
+          - name: name
+            description: store name
+            meta:
+              domain: store                      
+          - name: address
+            description: address of the store

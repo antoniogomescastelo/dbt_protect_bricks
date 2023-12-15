@@ -1,4 +1,4 @@
-name: 'dbt_protect'
+name: 'dbt_protect_bricks'
 version: '1.0.0'
 
 test-paths: ["tests"]
