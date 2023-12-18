@@ -7,8 +7,8 @@
       
       {% for k, v in source.filter.items() %}
         {% do log("ACA02") %}
-        {% do log({{k}}) %}
-        {% do log({{v}}) %}
+        {% do log(k) %}
+        {% do log(v) %}
         {% set sql %} alter table {{source.database}}.{{source.schema}}.{{source.name}} set row filter {{k}} on ({{v}}); {% endset %}
 
         {% do run_query(sql) %}
