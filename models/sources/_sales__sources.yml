@@ -33,6 +33,8 @@ sources:
               domain: customer                      
       - name: dim_store
         description: main customer table
+        filter: 
+          main.sbi_template_unitycatalog.main_sales_dim_store: business_key
         tests:
           - not_empty
         columns:

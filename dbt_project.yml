@@ -13,6 +13,8 @@ clean-targets:
 on-run-start:
   - "{{ create_function_protect() }}"
   - "{{ create_function_dataconcept_firstname() }}"
+  - "{{ create_function_datacategory_personallyidentifiableinformation() }}"
+  - "{{ create_function_main_sales_dim_store() }}"
   - "{{ do_sources_on_run_start() }}"
 
 on-run-end:
